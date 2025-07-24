@@ -1,0 +1,26 @@
+Screen {
+    layout: grid;
+    grid-size: 2;
+    grid-gutter: 1;
+
+}
+
+Static {
+
+}
+
+
+Label {
+    color: black;
+    background: aquamarine;
+    width: auto;
+
+}
+
+Button {
+
+}
+
+Input {
+
+}
