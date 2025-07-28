@@ -1,11 +1,21 @@
 from textual.app import App
-from textual.widgets import Label, Input, Button, Static, Pretty
+from textual.widgets import Label, Input, Button, Static, Pretty, DataTable
 from textual.screen import Screen
 
 class TelaListagem(Screen):
     def compose(self):
-        yield Pretty(XpAgenda.AGENDA)
+        yield DataTable(id= 'tb_agenda')
 
+    def on_mount(self):
+        tabela = self.query_one("#tb_agenda", DataTable)
+        tabela.add_columns('email', 'nome', 'fone')
+
+        for email, dados in XpAgenda.AGENDA.items():
+            tabela.add_row(
+                email,
+                dados['nome'],
+                dados['fone']
+            )
 
 class XpAgenda(App):
 
